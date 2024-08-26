@@ -17,15 +17,26 @@
       </div>
     </div>
     <div class="row justify-center q-mt-sm q-pr-sm q-pl-sm">
-      <q-input
-        v-model="userMood.observation"
-        hint="Use este espaço para dizer alguma coisa"
-        class="col-12 col-sm-8 col-md-6"
-        outlined
-        color="black"
-        maxlength="140"
-        counter
-      />
+      <div class="row col-12 col-sm-8 col-md-6 no-wrap items-start">
+        <q-input
+          v-model="userMood.observation"
+          hint="Use este espaço para dizer alguma coisa"
+          outlined
+          color="black"
+          maxlength="140"
+          counter
+          class="col"
+        />
+        <q-btn
+          @click="updateMood"
+          stack
+          outline
+          size="md"
+          label="atualizar"
+          icon="refresh"
+          class="col-auto q-ml-sm"
+        />
+      </div>
     </div>
   </q-page>
 </template>
@@ -33,6 +44,7 @@
 <script>
 import { useUserMoodStore } from "src/stores/user-mood";
 import MoodSlider from "components/MoodSlider.vue";
+import { useRouter } from "vue-router";
 
 export default {
   name: "SettingsPage",
@@ -41,6 +53,7 @@ export default {
   },
   setup() {
     const userMood = useUserMoodStore();
+    const router = useRouter();
 
     const sliderFields = {
       mood: "Bom Humor",
@@ -53,8 +66,14 @@ export default {
       beAlone: "Querendo Companhia",
     };
 
+    const updateMood = () => {
+      //todo envia pra api
+      router.push("/");
+    };
+
     return {
       userMood,
+      updateMood,
       sliderFields,
       labels: sliderFields,
     };
