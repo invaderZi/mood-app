@@ -3,7 +3,9 @@
     <q-header class="bg-white text-black" bordered>
       <q-toolbar>
         <q-btn to="/" flat icon="home" class="q-mr-xs" />
-        <q-toolbar-title class="text-center"> FriendsMood </q-toolbar-title>
+        <q-toolbar-title class="text-center text-subtitle2">
+          FriendsMood
+        </q-toolbar-title>
         <q-btn @click="goSettings" flat icon="person" />
       </q-toolbar>
     </q-header>

@@ -2,14 +2,14 @@ import { defineStore } from "pinia";
 
 export const useUserMoodStore = defineStore("userMood", {
   state: () => ({
-    mood: 3,
-    hunger: 3,
-    boredom: 3,
-    physicalDisposition: 3,
-    emotionalDisposition: 3,
-    willingnessToTalk: 3,
-    willingnessToListen: 3,
-    isAlone: true,
+    mood: 50,
+    hunger: 50,
+    boredom: 50,
+    physicalDisposition: 50,
+    emotionalDisposition: 50,
+    willingnessToTalk: 50,
+    willingnessToListen: 50,
+    beAlone: 50,
     observation: "",
     sliderColor: "black",
   }),
@@ -19,9 +19,6 @@ export const useUserMoodStore = defineStore("userMood", {
     },
     setObservation(text) {
       this.observation = text;
-    },
-    toggleAlone() {
-      this.isAlone = !this.isAlone;
     },
   },
 });

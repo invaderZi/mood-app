@@ -1,11 +1,13 @@
 <template>
   <q-page padding>
-    <h5 class="text-center q-mt-none">Configurações de Humor</h5>
-    <div class="row q-col-gutter-md justify-center">
+    <h6 class="text-center q-mt-none q-mb-md text-subtitle2">
+      Como estou me sentindo?
+    </h6>
+    <div class="row q-col-gutter-md justify-center q-mb-none">
       <div
         v-for="(value, key) in sliderFields"
         :key="key"
-        class="col-12 col-sm-6 col-md-4"
+        class="col-12 col-sm-6 col-md-4 q-mb-none q-mt-none q-pt-sm"
       >
         <MoodSlider
           :label="labels[key]"
@@ -14,19 +16,16 @@
         />
       </div>
     </div>
-    <div class="row justify-center q-mt-md">
-      <q-toggle v-model="userMood.isAlone" label="Sozinho ou Acompanhado" />
-    </div>
-    <div class="row justify-center q-mt-md">
+    <div class="row justify-center q-mt-sm q-pr-sm q-pl-sm">
       <q-input
         v-model="userMood.observation"
-        label="Observação"
-        type="textarea"
+        hint="Use este espaço para dizer alguma coisa"
         class="col-12 col-sm-8 col-md-6"
+        outlined
+        color="black"
+        maxlength="140"
+        counter
       />
-    </div>
-    <div class="row justify-center q-mt-md">
-      <q-btn color="primary" label="Salvar" @click="$router.push('/')" />
     </div>
   </q-page>
 </template>
@@ -44,13 +43,14 @@ export default {
     const userMood = useUserMoodStore();
 
     const sliderFields = {
-      mood: "Humor",
+      mood: "Bom Humor",
       hunger: "Fome",
       boredom: "Tédio",
       physicalDisposition: "Disposição Física",
       emotionalDisposition: "Disposição Emocional",
       willingnessToTalk: "Vontade de Falar",
-      willingnessToListen: "Vontade de Ouvir",
+      willingnessToListen: "Disposição para Ouvir",
+      beAlone: "Querendo Companhia",
     };
 
     return {
