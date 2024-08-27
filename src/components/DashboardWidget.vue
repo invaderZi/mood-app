@@ -57,20 +57,20 @@ export default {
     }));
 
     const labels = {
-      mood: "Humor",
+      mood: "Bom Humor",
       hunger: "Fome",
       boredom: "Tédio",
       physicalDisposition: "Disposição Física",
       emotionalDisposition: "Disposição Emocional",
       willingnessToTalk: "Vontade de Falar",
-      willingnessToListen: "Vontade de Ouvir",
+      willingnessToListen: "Disposição para Ouvir",
       beAlone: "Querendo Companhia",
     };
 
     const formatValue = (value) => `${value.toFixed(0)}%`;
     const changeColor = (value) => {
       const colorMap = {
-        30: "pink-6",
+        25: "pink-6",
         55: "yellow-7",
         100: "green-13",
       };
