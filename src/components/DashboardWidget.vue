@@ -1,12 +1,38 @@
 <template>
-  <q-card class="dashboard-widget">
-    <q-card-section>
-      <div v-for="(value, key) in displayFields" :key="key" class="q-mb-sm">
-        <strong>{{ labels[key] }}:</strong> {{ formatValue(value) }}
-      </div>
-      <div><strong>Recado:</strong> {{ userMood.observation }}</div>
-    </q-card-section>
-  </q-card>
+  <div class="dashboard-widgets q-mt-none q-ml-md q-mr-md">
+    <q-card class="dashboard-widget q-mb-sm">
+      <q-card-section>
+        <div class="row q-col-gutter-md">
+          <div
+            v-for="(value, key) in displayFields"
+            :key="key"
+            class="col-6 q-mb-sm"
+          >
+            <div class="column items-center">
+              <strong>{{ labels[key] }}</strong>
+
+              <q-knob
+                readonly
+                show-value
+                class="text-black-blue q-mt-sm"
+                :value="value"
+                size="50px"
+                :color="changeColor(value)"
+              />
+            </div>
+          </div>
+        </div>
+      </q-card-section>
+    </q-card>
+    <q-card class="dashboard-widget">
+      <q-card-section>
+        <div class="recado-wrapper">
+          <strong>Recado:</strong>
+          <span class="recado-text">{{ userMood.observation }}</span>
+        </div>
+      </q-card-section>
+    </q-card>
+  </div>
 </template>
 
 <script>
@@ -41,20 +67,39 @@ export default {
     };
 
     const formatValue = (value) => `${value.toFixed(0)}%`;
+    const changeColor = (value) => {
+      const colorMap = {
+        30: "pink-6",
+        55: "yellow-7",
+        100: "green-13",
+      };
+
+      for (const threshold in colorMap) {
+        if (value <= threshold) {
+          return colorMap[threshold];
+        }
+      }
+    };
 
     return {
       userMood,
       displayFields,
       labels,
       formatValue,
+      changeColor,
     };
   },
 };
 </script>
 
 <style scoped>
-.dashboard-widget {
-  max-width: 300px;
-  margin: 0 auto;
+.recado-wrapper {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.recado-text {
+  word-break: break-all;
 }
 </style>
