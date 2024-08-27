@@ -12,6 +12,7 @@ export const useUserMoodStore = defineStore("userMood", {
     beAlone: 50,
     observation: "",
     sliderColor: "black",
+    name: "Fulano",
   }),
   actions: {
     updateMood(field, value) {

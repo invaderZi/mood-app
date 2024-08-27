@@ -4,7 +4,7 @@
       <q-toolbar>
         <q-btn to="/" flat icon="home" class="q-mr-xs" />
         <q-toolbar-title class="text-center text-subtitle2">
-          FriendsMood
+          Mood
         </q-toolbar-title>
         <q-btn @click="goSettings" flat icon="person" />
       </q-toolbar>

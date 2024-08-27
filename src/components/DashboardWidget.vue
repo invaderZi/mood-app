@@ -1,5 +1,6 @@
 <template>
   <div class="dashboard-widgets q-mt-none q-ml-md q-mr-md">
+    <div class="text-caption q-mb-md">{{ userMood.name }} está sentindo:</div>
     <q-card class="dashboard-widget q-mb-sm">
       <q-card-section>
         <div class="row q-col-gutter-md">
@@ -27,7 +28,7 @@
     <q-card class="dashboard-widget">
       <q-card-section>
         <div class="recado-wrapper">
-          <strong>Recado:</strong>
+          <strong>Recado: </strong>
           <span class="recado-text">{{ userMood.observation }}</span>
         </div>
       </q-card-section>

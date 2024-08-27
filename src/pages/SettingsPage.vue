@@ -30,11 +30,11 @@
         <q-btn
           @click="updateMood"
           stack
-          outline
           size="md"
           label="atualizar"
           icon="refresh"
           class="col-auto q-ml-sm"
+          outline
         />
       </div>
     </div>
