@@ -1,14 +1,35 @@
 <template>
   <q-layout view="hHh lpR fFf">
-    <q-header class="bg-white text-black" bordered>
-      <q-toolbar>
-        <q-btn to="/" flat icon="home" class="q-mr-xs" />
-        <q-toolbar-title class="text-center text-subtitle2">
+    <q-footer class="bg-white text-black" bordered>
+      <q-toolbar class="justify-around">
+        <q-btn to="/" flat icon="home" size="lg" class="q-ma-none=" />
+        <q-btn
+          @click="openSearch"
+          flat
+          size="lg"
+          icon="search"
+          class="q-ma-none"
+        />
+        <q-toolbar-title shrink class="text-center text-subtitle2 text-bold">
           Mood
         </q-toolbar-title>
-        <q-btn @click="goSettings" flat icon="person" />
+        <q-btn
+          @click="goFriends"
+          flat
+          size="lg"
+          icon="people"
+          class="q-ma-none"
+        />
+        <q-btn
+          @click="goSettings"
+          flat
+          size="lg"
+          icon="person"
+          class="q-ma-none"
+        />
       </q-toolbar>
-    </q-header>
+    </q-footer>
+
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -25,7 +46,7 @@ export default defineComponent({
     const router = useRouter();
 
     const goSettings = () => {
-      router.push("/settings");
+      router.push("/profile");
     };
 
     return {

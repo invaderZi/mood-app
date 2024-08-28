@@ -3,8 +3,8 @@
     <div class="row justify-center">
       <div class="col-12 col-sm-8 col-md-6">
         <div class="row items-center no-wrap">
-          <div class="col-4 text-caption q-pr-md">{{ label }}</div>
-          <div class="col-8 row items-center no-wrap">
+          <div class="col-4 text-subtitle2 q-pr-md">{{ label }}</div>
+          <div class="col-8 row items-center no-wrap q-pa-none q-mt-md">
             <q-slider
               v-model="localValue"
               :color="color"

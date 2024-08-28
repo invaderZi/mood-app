@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <h6 class="text-center q-mt-none q-mb-md text-subtitle2">
+    <h6 class="text-center q-mt-lg q-mb-md text-subtitle2">
       Como estou me sentindo?
     </h6>
     <div class="row q-col-gutter-md justify-center q-mb-none">
@@ -30,11 +30,11 @@
         <q-btn
           @click="updateMood"
           stack
-          size="md"
+          size="sm"
           label="atualizar"
           icon="refresh"
-          class="col-auto q-ml-sm"
-          outline
+          class="col-auto q-ml-sm q-pa-md"
+          flat
         />
       </div>
     </div>
@@ -68,7 +68,7 @@ export default {
 
     const updateMood = () => {
       //todo envia pra api
-      router.push("/");
+      router.push("/profile");
     };
 
     return {

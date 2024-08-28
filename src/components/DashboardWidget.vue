@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard-widgets q-mt-none q-ml-md q-mr-md">
-    <div class="text-caption q-mb-md">{{ userMood.name }} está sentindo:</div>
+    <div class="text-subtitle text-bold q-mb-md">
+      Mood de {{ userMood.name }}
+    </div>
     <q-card class="dashboard-widget q-mb-sm">
       <q-card-section>
         <div class="row q-col-gutter-md">
@@ -10,14 +12,16 @@
             class="col-6 q-mb-sm"
           >
             <div class="column items-center">
-              <strong>{{ labels[key] }}</strong>
+              <h6 class="text-caption q-pa-none q-ma-none">
+                {{ labels[key] }}
+              </h6>
 
               <q-knob
                 readonly
                 show-value
                 class="text-black-blue q-mt-sm"
                 :value="value"
-                size="50px"
+                size="60px"
                 :color="changeColor(value)"
               />
             </div>
@@ -28,7 +32,7 @@
     <q-card class="dashboard-widget">
       <q-card-section>
         <div class="recado-wrapper">
-          <strong>Recado: </strong>
+          <strong class="text-subtitle2">Recado: </strong>
           <span class="recado-text">{{ userMood.observation }}</span>
         </div>
       </q-card-section>

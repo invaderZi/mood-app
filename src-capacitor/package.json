@@ -1,0 +1,13 @@
+{
+  "name": "humor-monitor",
+  "version": "0.0.1",
+  "description": "A mood monitor to share with your friends and family",
+  "author": "Zi <zi@dontreply.fkemail.com>",
+  "private": true,
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
+  }
+}
