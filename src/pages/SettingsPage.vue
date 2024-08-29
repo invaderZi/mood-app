@@ -12,7 +12,7 @@
         <MoodSlider
           :label="labels[key]"
           v-model="userMood[key]"
-          :color="userMood.sliderColor"
+          :color="user.sliderColor"
         />
       </div>
     </div>
@@ -43,6 +43,8 @@
 
 <script>
 import { useUserMoodStore } from "src/stores/user-mood";
+import { useUserStore } from "src/stores/user";
+
 import MoodSlider from "components/MoodSlider.vue";
 import { useRouter } from "vue-router";
 
@@ -53,6 +55,7 @@ export default {
   },
   setup() {
     const userMood = useUserMoodStore();
+    const user = useUserStore();
     const router = useRouter();
 
     const sliderFields = {
@@ -76,6 +79,7 @@ export default {
       updateMood,
       sliderFields,
       labels: sliderFields,
+      user,
     };
   },
 };

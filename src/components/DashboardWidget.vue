@@ -1,8 +1,6 @@
 <template>
   <div class="dashboard-widgets q-mt-none q-ml-md q-mr-md">
-    <div class="text-subtitle text-bold q-mb-md">
-      Mood de {{ userMood.name }}
-    </div>
+    <div class="text-subtitle text-bold q-mb-md">Mood de {{ user.name }}</div>
     <q-card class="dashboard-widget q-mb-sm">
       <q-card-section>
         <div class="row q-col-gutter-md">
@@ -42,12 +40,15 @@
 
 <script>
 import { useUserMoodStore } from "src/stores/user-mood";
+import { useUserStore } from "src/stores/user";
+
 import { computed } from "vue";
 
 export default {
   name: "DashboardWidget",
   setup() {
     const userMood = useUserMoodStore();
+    const user = useUserStore();
 
     const displayFields = computed(() => ({
       mood: userMood.mood,
@@ -71,7 +72,6 @@ export default {
       beAlone: "Querendo Companhia",
     };
 
-    const formatValue = (value) => `${value.toFixed(0)}%`;
     const changeColor = (value) => {
       const colorMap = {
         25: "pink-6",
@@ -90,8 +90,8 @@ export default {
       userMood,
       displayFields,
       labels,
-      formatValue,
       changeColor,
+      user,
     };
   },
 };
