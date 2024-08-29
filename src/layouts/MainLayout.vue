@@ -2,7 +2,7 @@
   <q-layout view="hHh lpR fFf">
     <q-footer class="bg-white text-black" bordered>
       <q-toolbar class="justify-around">
-        <q-btn to="/" flat icon="home" size="lg" class="q-ma-none=" />
+        <q-btn to="/" flat icon="home" size="lg" class="q-ma-none" />
         <q-btn
           @click="openSearch"
           flat
@@ -10,7 +10,11 @@
           icon="search"
           class="q-ma-none"
         />
-        <q-toolbar-title shrink class="text-center text-subtitle2 text-bold">
+        <q-toolbar-title
+          shrink
+          @click="goLogin"
+          class="text-center text-subtitle2 text-bold"
+        >
           Mood
         </q-toolbar-title>
         <q-btn
@@ -49,8 +53,13 @@ export default defineComponent({
       router.push("/profile");
     };
 
+    const goLogin = () => {
+      router.push("/login");
+    };
+
     return {
       goSettings,
+      goLogin,
     };
   },
 });
