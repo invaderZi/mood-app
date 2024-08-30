@@ -3,15 +3,15 @@
     <q-page-container>
       <q-page class="flex flex-center q-pa-md">
         <div class="login-container q-pa-md">
-          <h6 class="text-h6 text-center q-mb-md">Mood App</h6>
-
+          <div class="text-h6 text-center text-subtitle1 text-bold q-mb-md">
+            Mood
+          </div>
           <q-input
             v-model="username"
             label="Username"
             class="q-mb-md"
             outlined
           />
-
           <q-input
             v-model="password"
             label="Password"
@@ -19,14 +19,25 @@
             class="q-mb-md"
             outlined
           />
-
-          <q-btn
-            label="Login"
-            color="primary"
-            @click="login"
-            to="/"
-            :disable="disableLogin"
-          />
+          <div class="row">
+            <q-btn
+              class="col-6 fit q-mt-md"
+              label="Login"
+              :color="disableLogin ? 'grey' : 'black'"
+              @click="login"
+              :disable="disableLogin"
+              size="16px"
+            />
+            <q-btn
+              class="col-6 fit q-mt-md"
+              label="Register"
+              text-color="primary"
+              color="white"
+              @click="cadastro"
+              flat
+              size="16px"
+            />
+          </div>
         </div>
       </q-page>
     </q-page-container>
@@ -34,21 +45,71 @@
 </template>
 
 <script>
+import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
+import { useUserStore } from "src/stores/user";
+import { useQuasar } from "quasar";
 export default {
-  computed: {
-    disableLogin() {
-      return !(this.username.length > 0 && this.password.length > 0);
-    },
-  },
-  data() {
-    return {
-      username: "",
-      password: "",
-    };
-  },
+  setup() {
+    const $q = useQuasar();
+    const userStore = useUserStore();
+    const router = useRouter();
+    const username = ref("");
+    const password = ref("");
 
-  methods: {
-    login() {},
+    const disableLogin = computed(() => {
+      return !(username.value.length > 0 && password.value.length > 0);
+    });
+
+    const login = async () => {
+      try {
+        // Simulando um login bem-sucedido
+        if (username.value == userStore.username) {
+          userStore.setLoggedIn(true);
+
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+
+          triggerPositive("Welcome " + userStore.username);
+          router.push("/");
+        } else {
+          throw new Error("invalid credentials");
+        }
+      } catch (error) {
+        console.error("Erro de login:", error);
+        triggerNegative("Invalid Credentials");
+      }
+    };
+
+    const cadastro = () => {
+      console.log("Navegar para a página de registro");
+    };
+
+    const triggerPositive = (message) => {
+      $q.notify({
+        type: "positive",
+        message: message,
+        position: "top",
+      });
+    };
+
+    const triggerNegative = (message) => {
+      $q.notify({
+        type: "negative",
+        message: message,
+        position: "top",
+      });
+    };
+
+    return {
+      username,
+      password,
+      disableLogin,
+      login,
+      cadastro,
+      $q,
+      triggerNegative,
+      triggerPositive,
+    };
   },
 };
 </script>
@@ -62,10 +123,9 @@ export default {
   align-items: center;
   margin: auto;
 }
-
 @media (max-width: 600px) {
   .login-container {
-    max-width: 90%; /* Adjust max-width on smaller screens */
+    max-width: 90%;
   }
 }
 </style>

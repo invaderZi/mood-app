@@ -33,7 +33,6 @@
         />
       </q-toolbar>
     </q-footer>
-
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -41,13 +40,20 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { defineComponent, onMounted } from "vue";
 import { useRouter } from "vue-router";
-
+import { useUserStore } from "src/stores/user";
 export default defineComponent({
   name: "MainLayout",
   setup() {
     const router = useRouter();
+    const userStore = useUserStore();
+
+    onMounted(() => {
+      if (!userStore.isLogged) {
+        router.push("/login");
+      }
+    });
 
     const goSettings = () => {
       router.push("/profile");
@@ -57,9 +63,20 @@ export default defineComponent({
       router.push("/login");
     };
 
+    const goFriends = () => {
+      router.push("/friends"); // Assumindo que você tem uma rota para amigos
+    };
+
+    const openSearch = () => {
+      // Implemente a lógica de busca aqui
+      console.log("Abrir busca");
+    };
+
     return {
       goSettings,
       goLogin,
+      goFriends,
+      openSearch,
     };
   },
 });
