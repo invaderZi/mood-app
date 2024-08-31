@@ -4,7 +4,7 @@
       <q-page class="flex flex-center q-pa-md">
         <div class="login-container q-pa-md">
           <div class="text-h6 text-center text-subtitle1 text-bold q-mb-md">
-            Mood
+            Mood <i class="material-icons icon-xsmall">mood</i>
           </div>
           <q-input
             v-model="username"

@@ -13,6 +13,11 @@ const routes = [
         component: () => import("pages/ProfilePage.vue"),
         meta: { requiresAuth: true },
       },
+      {
+        path: "friends",
+        component: () => import("pages/FriendsPage.vue"),
+        meta: { requiresAuth: true },
+      },
     ],
     meta: { requiresAuth: true },
   },

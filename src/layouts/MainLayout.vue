@@ -15,7 +15,7 @@
           @click="goLogin"
           class="text-center text-subtitle2 text-bold"
         >
-          Mood
+          <i class="material-icons icon-xsmall">mood</i>
         </q-toolbar-title>
         <q-btn
           @click="goFriends"
