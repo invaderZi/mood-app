@@ -19,13 +19,16 @@
               />
             </q-item-section>
             <q-item-section>
-              <div class="row no-wrap items-baseline">
+              <div class="row no-wrap items-baseline justify-between">
                 <div class="col-grow">
                   <div class="text-subtitle2 ellipsis" style="max-width: 150px">
                     {{ username }}
                   </div>
-                  <div class="recado-text">{{ text }}</div>
+                  <div class="recado-text">
+                    {{ text.length > 0 ? text : "...atualizou o mood" }}
+                  </div>
                 </div>
+                <span class="text-caption text-grey q-ml-sm">{{ time }}</span>
               </div>
             </q-item-section>
           </template>
@@ -78,6 +81,10 @@ export default {
         willingnessToListen: 50,
         beAlone: 50,
       }),
+    },
+    time: {
+      type: String,
+      default: "today",
     },
   },
   setup() {
