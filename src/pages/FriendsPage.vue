@@ -1,39 +1,23 @@
 <template>
   <FriendCard
-    :username="user.name"
-    :text="userMood.observation"
-    :moodPropreties="displayFields"
+    v-for="user in userFriendsList.friendsMoodUpdateList"
+    :key="user.id"
+    :user="user"
   />
 </template>
 
 <script>
-import { useUserMoodStore } from "src/stores/user-mood";
-import { useUserStore } from "src/stores/user";
-import { computed } from "vue";
+import { useUserFriendsStore } from "src/stores/user-friends";
 import FriendCard from "src/components/FriendCard.vue";
 
 export default {
   components: { FriendCard },
 
   setup() {
-    const userMood = useUserMoodStore();
-    const user = useUserStore();
-
-    const displayFields = computed(() => ({
-      mood: userMood.mood,
-      hunger: userMood.hunger,
-      boredom: userMood.boredom,
-      physicalDisposition: userMood.physicalDisposition,
-      emotionalDisposition: userMood.emotionalDisposition,
-      willingnessToTalk: userMood.willingnessToTalk,
-      willingnessToListen: userMood.willingnessToListen,
-      beAlone: userMood.beAlone,
-    }));
+    const userFriendsList = useUserFriendsStore();
 
     return {
-      userMood,
-      displayFields,
-      user,
+      userFriendsList,
     };
   },
 };
