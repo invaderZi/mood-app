@@ -20,7 +20,7 @@
                 class="text-black-blue q-mt-sm"
                 :value="value"
                 size="60px"
-                :color="changeColor(value)"
+                :color="changeColor(key, value)"
               />
             </div>
           </div>
@@ -72,12 +72,22 @@ export default {
       beAlone: "Querendo Companhia",
     };
 
-    const changeColor = (value) => {
-      const colorMap = {
-        25: "pink-6",
-        55: "yellow-7",
-        100: "green-13",
-      };
+    const changeColor = (key, value) => {
+      let colorMap;
+
+      if (key == "hunger" || key == "boredom") {
+        colorMap = {
+          25: "green-13",
+          55: "yellow-7",
+          100: "pink-6",
+        };
+      } else {
+        colorMap = {
+          25: "pink-6",
+          55: "yellow-7",
+          100: "green-13",
+        };
+      }
 
       for (const threshold in colorMap) {
         if (value <= threshold) {
