@@ -10,17 +10,25 @@
           hide-expand-icon
         >
           <template v-slot:header>
-            <q-item-section avatar>
-              <q-avatar icon="bluetooth" color="primary" text-color="white" />
-              <span class="text-caption text-bold">
-                {{ username }}
-              </span>
+            <q-item-section side>
+              <q-avatar
+                icon="person"
+                color="grey"
+                text-color="white"
+                size="40px"
+              />
             </q-item-section>
             <q-item-section>
-              <span class="recado-text">{{ text }}</span>
+              <div class="row no-wrap items-baseline">
+                <div class="col-grow">
+                  <div class="text-subtitle2 ellipsis" style="max-width: 150px">
+                    {{ username }}
+                  </div>
+                  <div class="recado-text">{{ text }}</div>
+                </div>
+              </div>
             </q-item-section>
           </template>
-
           <div class="row no-wrap q-col-gutter-md justify-around q-mt-md">
             <div
               v-for="(value, key) in moodPropreties"
@@ -113,5 +121,11 @@ export default {
 
 .icon-xsmall {
   font-size: 14px; /* Tamanho pequeno dos ícones */
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 </style>

@@ -4,7 +4,7 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     isLogged: false,
     id: 1,
-    name: "teste",
+    name: "fulano silva sauro noem grandes",
     username: "fulano",
     email: "fulano@mail.com",
     sliderColor: "black",
