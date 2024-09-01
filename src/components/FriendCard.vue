@@ -17,7 +17,7 @@
             <div class="row items-baseline">
               <div class="col-grow">
                 <q-item-label
-                  class="text-subtitle2 ellipsis"
+                  class="text-caption text-bold ellipsis q-mb-sm"
                   style="max-width: 150px"
                 >
                   {{ user.name }}
@@ -125,5 +125,6 @@ export default {
   overflow: visible;
   text-overflow: clip;
   word-break: break-word;
+  color: black;
 }
 </style>

@@ -2,7 +2,13 @@
   <q-layout view="hHh lpR fFf">
     <q-footer class="bg-white text-black" bordered>
       <q-toolbar class="justify-around">
-        <q-btn to="/" flat icon="home" size="lg" class="q-ma-none" />
+        <q-btn
+          @click="goFriends"
+          flat
+          size="lg"
+          icon="people"
+          class="q-ma-none"
+        />
         <q-btn
           @click="openSearch"
           flat
@@ -18,12 +24,15 @@
           <i class="material-icons icon-xsmall">mood</i>
         </q-toolbar-title>
         <q-btn
-          @click="goFriends"
+          to="/"
           flat
+          icon="add"
           size="lg"
-          icon="people"
+          color="white"
+          text-color="black"
           class="q-ma-none"
         />
+
         <q-btn
           @click="goSettings"
           flat

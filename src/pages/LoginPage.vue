@@ -70,7 +70,7 @@ export default {
           await new Promise((resolve) => setTimeout(resolve, 1000));
 
           triggerPositive("Welcome " + userStore.username);
-          router.push("/");
+          router.push("/friends");
         } else {
           throw new Error("invalid credentials");
         }
@@ -89,6 +89,7 @@ export default {
         type: "positive",
         message: message,
         position: "top",
+        icon: "",
       });
     };
 
