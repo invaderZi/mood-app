@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-center">
-    <h1>Friends Mood</h1>
+    <h1>Friends Muuud</h1>
   </q-page>
 </template>
 
