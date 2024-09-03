@@ -28,7 +28,7 @@
               </div>
             </div>
             <q-item-label caption class="observation-text">
-              {{ user.observation || "...atualizou o mood" }}
+              {{ user.recado || "...atualizou o mood" }}
             </q-item-label>
           </q-item-section>
         </template>
@@ -94,14 +94,14 @@ export default {
     };
 
     const moodProperties = computed(() => ({
-      mood: props.user.mood,
-      hunger: props.user.hunger,
-      boredom: props.user.boredom,
-      physicalDisposition: props.user.physicalDisposition,
-      emotionalDisposition: props.user.emotionalDisposition,
-      willingnessToTalk: props.user.willingnessToTalk,
-      willingnessToListen: props.user.willingnessToListen,
-      beAlone: props.user.beAlone,
+      mood: props.user.humor,
+      hunger: props.user.fome,
+      boredom: props.user.tedio,
+      physicalDisposition: props.user.fisica,
+      emotionalDisposition: props.user.emocional,
+      willingnessToTalk: props.user.falar,
+      willingnessToListen: props.user.ouvir,
+      beAlone: props.user.companhia,
     }));
 
     return {

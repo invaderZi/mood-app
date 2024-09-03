@@ -88,5 +88,9 @@ export const useUserFriendsStore = defineStore("userFriends", {
       },
     ],
   }),
-  actions: {},
+  actions: {
+    setFriendsMoodUpdateList(value) {
+      this.friendsMoodUpdateList = value;
+    },
+  },
 });
