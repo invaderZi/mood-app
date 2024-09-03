@@ -21,7 +21,8 @@ export default {
     const fetchFriends = async () => {
       try {
         const friends = await getFriendsMoods();
-        friendsMoodUpdateList.value = friends;
+        friendsMoodUpdateList.value = friends.sort((a, b) => b.id - a.id); // mais recente -> mais antigo
+
         userFriendsList.setFriendsMoodUpdateList(friends);
       } catch (error) {
         console.error("Erro ao buscar amigos da API:", error);
