@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-widgets q-mt-none q-ml-md q-mr-md">
-    <div class="text-subtitle text-bold q-mb-md">Muuud de {{ user.name }}</div>
+    <div class="text-subtitle text-bold q-mb-md">mood de {{ user.name }}</div>
     <q-card class="dashboard-widget q-mb-sm">
       <q-card-section>
         <div class="row q-col-gutter-md">

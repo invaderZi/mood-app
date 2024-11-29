@@ -24,7 +24,9 @@
                 </q-item-label>
               </div>
               <div class="col-auto q-ml-sm">
-                <q-item-label caption>{{ user.time }}</q-item-label>
+                <q-item-label caption>{{
+                  formatTime(user.timestamp)
+                }}</q-item-label>
               </div>
             </div>
             <q-item-label caption class="observation-text">
@@ -59,6 +61,7 @@
 
 <script>
 import { computed } from "vue";
+import { getRelativeTime } from "../util/timeConverter";
 
 export default {
   name: "FriendCard",
@@ -104,10 +107,15 @@ export default {
       beAlone: props.user.companhia,
     }));
 
+    const formatTime = (timestamp) => {
+      return getRelativeTime(timestamp);
+    };
+
     return {
       iconMap,
       changeColor,
       moodProperties,
+      formatTime,
     };
   },
 };

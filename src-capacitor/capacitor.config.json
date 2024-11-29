@@ -1,5 +1,5 @@
 {
-  "appId": "org.zetalabs.muuud.app",
-  "appName": "Muuud",
+  "appId": "org.zetalabs.mood.app",
+  "appName": "mood",
   "webDir": "www"
 }

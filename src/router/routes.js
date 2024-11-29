@@ -5,7 +5,7 @@ const routes = [
     children: [
       {
         path: "",
-        component: () => import("pages/SettingsPage.vue"),
+        component: () => import("src/pages/MoodSetPage.vue"),
         meta: { requiresAuth: true },
       },
       {

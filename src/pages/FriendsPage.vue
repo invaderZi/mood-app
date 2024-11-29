@@ -1,9 +1,14 @@
 <template>
-  <FriendCard
-    v-for="user in friendsMoodUpdateList"
-    :key="user.id"
-    :user="user"
-  />
+  <div v-if="friendsMoodUpdateList.length > 0">
+    <FriendCard
+      v-for="user in friendsMoodUpdateList"
+      :key="user.id"
+      :user="user"
+    />
+  </div>
+  <div v-else class="text-center">
+    <h6>you havent followed nobody yet</h6>
+  </div>
 </template>
 
 <script>

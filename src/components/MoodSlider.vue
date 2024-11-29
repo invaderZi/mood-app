@@ -47,6 +47,7 @@ export default {
     },
   },
   emits: ["update:modelValue"],
+
   setup(props, { emit }) {
     const localValue = ref(props.modelValue);
 

@@ -28,7 +28,7 @@
           class="col"
         />
         <q-btn
-          @click="updateMood"
+          @click="updateMood(userMood)"
           stack
           size="sm"
           label="atualizar"
@@ -47,6 +47,8 @@ import { useUserStore } from "src/stores/user";
 
 import MoodSlider from "components/MoodSlider.vue";
 import { useRouter } from "vue-router";
+import { postMood } from "src/services/MoodService";
+import { useQuasar } from "quasar";
 
 export default {
   name: "SettingsPage",
@@ -54,6 +56,7 @@ export default {
     MoodSlider,
   },
   setup() {
+    const $q = useQuasar();
     const userMood = useUserMoodStore();
     const user = useUserStore();
     const router = useRouter();
@@ -69,9 +72,34 @@ export default {
       beAlone: "Querendo Companhia",
     };
 
-    const updateMood = () => {
-      //todo envia pra api
-      router.push("/profile");
+    const updateMood = async (mood) => {
+      try {
+        mood.userId = user.id;
+        await postMood(mood);
+        triggerPositive("Mood atualizado :)");
+        router.push("/profile");
+      } catch (error) {
+        triggerNegative("erro ao enviar mood   :(  ");
+        console.log(error);
+      }
+    };
+
+    const triggerPositive = (message) => {
+      $q.notify({
+        type: "positive",
+        message: message,
+        position: "top",
+        icon: "",
+      });
+    };
+
+    const triggerNegative = (message) => {
+      $q.notify({
+        type: "negative",
+        message: message,
+        position: "top",
+        icon: "",
+      });
     };
 
     return {

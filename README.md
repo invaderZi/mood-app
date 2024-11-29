@@ -1,4 +1,4 @@
-# Muuud (humor-monitor)
+# mood (humor-monitor)
 
 A mood monitor to share with your friends and family
 
